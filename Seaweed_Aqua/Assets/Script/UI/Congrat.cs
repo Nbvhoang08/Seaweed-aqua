@@ -6,9 +6,9 @@ public class Congrat : CanvasUI
      public void NextBtn()
     {
         Time.timeScale = 1;
-
+        SoundManager.Instance.PlayClickSound();
         StartCoroutine(NextSence());
-        SoundManager.Instance.PlayVFXSound(2);
+
     }
     public void LoadNextScene()
     {

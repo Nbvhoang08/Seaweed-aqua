@@ -74,7 +74,7 @@ public class WeedMove : MonoBehaviour
                 {
                     // Dừng lại khi đến nơi
                     isMoving = false;
-                    //SoundManager.Instance.PlayVFXSound(0);
+                    SoundManager.Instance.PlayVFXSound(1);
                     StartCoroutine(DeactivateParentAfterDelay(0.2f));
                 }
             }
@@ -106,7 +106,7 @@ public class WeedMove : MonoBehaviour
             {
                 _gameManager.hp -= 1;
                 hasCollided = true;
-                //SoundManager.Instance.PlayVFXSound(1);
+                SoundManager.Instance.PlayVFXSound(0);
             }
 
         }

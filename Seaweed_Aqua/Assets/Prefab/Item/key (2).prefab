@@ -99,5 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rubber: {fileID: 0}
   Lock: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 5
   IsArrived: 0

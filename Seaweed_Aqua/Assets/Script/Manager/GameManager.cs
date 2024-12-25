@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             _hasWon = true;
             StartCoroutine(WinGame());
-            //SaveLVManager.Instance.SaveGame();
+            LVManager.Instance.SaveGame();
         }
     }
 
@@ -48,13 +48,13 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(0.3f);
-        //UIManager.Instance.OpenUI<Fail>();
+        UIManager.Instance.OpenUI<Fail>();
         Time.timeScale = 0;
     }
     IEnumerator WinGame()
     {
         yield return new WaitForSeconds(3f);
-        //UIManager.Instance.OpenUI<Congrat>();
+        UIManager.Instance.OpenUI<Congrat>();
         Time.timeScale = 0;
     }
 }

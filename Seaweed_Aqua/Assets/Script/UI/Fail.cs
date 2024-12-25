@@ -7,10 +7,11 @@ public class Fail : CanvasUI
     {
         Time.timeScale = 1;
         StartCoroutine(ReLoad());
+        SoundManager.Instance.PlayClickSound();
     }
     IEnumerator ReLoad()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         ReloadCurrentScene();
     }
     public void ReloadCurrentScene()

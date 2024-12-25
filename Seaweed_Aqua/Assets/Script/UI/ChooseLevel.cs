@@ -141,7 +141,8 @@ public class ChooseLevel : CanvasUI
     {
         SoundManager.Instance.TurnOn = !SoundManager.Instance.TurnOn;
         UpdateButtonImage();
-        SoundManager.Instance.PlayVFXSound(2);    
+        SoundManager.Instance.PlayVFXSound(2);
+
     }
 
     private void UpdateButtonImage()
@@ -172,7 +173,7 @@ public class ChooseLevel : CanvasUI
         yield return new WaitForSeconds(delay);
         float duration = 0.3f;
         float elapsed = 0f;
-
+        SoundManager.Instance.PlayVFXSound(3);
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -191,8 +192,7 @@ public class ChooseLevel : CanvasUI
     {
         if (levelIndex >= 0 && levelIndex < levels.Count && levels[levelIndex].isUnlocked)
         {
-
-            SoundManager.Instance.PlayVFXSound(2);
+            SoundManager.Instance.PlayClickSound();
             StartCoroutine(LoadLevelSequence(levelIndex));
         }
     }

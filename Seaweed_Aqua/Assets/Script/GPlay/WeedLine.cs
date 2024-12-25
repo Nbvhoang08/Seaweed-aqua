@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEditor;
+
 public class WeedLine : MonoBehaviour
 {
    public Transform pointA; // Điểm đầu
@@ -41,7 +41,7 @@ public class WeedLine : MonoBehaviour
             boxCollider.offset = offset;
         }
     }
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         Vector3 positionA = new Vector3(pointA.position.x, pointA.position.y, 0);
         Vector3 positionB = new Vector3(pointB.position.x, pointB.position.y, 0);
@@ -58,5 +58,5 @@ public class WeedLine : MonoBehaviour
                 normal = new GUIStyleState { textColor = Color.white }
             });
         }
-    }
+    }*/
 }

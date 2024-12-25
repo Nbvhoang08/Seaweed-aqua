@@ -1,11 +1,14 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UIManager : Singleton<UIManager>
 {
    [SerializeField] private List<CanvasUI> UICanvas; // Danh sách các UI canvas có sẵn
-
+    [SerializeField] private float scaleTo = 1.2f; // Kích thước khi scale
+    [SerializeField] private float duration = 0.25f; // Thời gian hiệu ứng
     protected override void Awake()
     {
         base.Awake();
@@ -24,6 +27,18 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
+    public void OnButtonClick(Button button)
+    {
+        // Scale button lên và trở về kích thước gốc
+        transform.DOScale(scaleTo, duration)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                // Sau khi scale xong, trở về kích thước ban đầu
+                transform.DOScale(1f, duration).SetEase(Ease.OutQuad);
+            });
+    }
     // Mở một UI cụ thể
     public T OpenUI<T>() where T : CanvasUI
     {

@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 2549554079720774617}
-  moveSpeed: 10
+  moveSpeed: 20
   detectionRadius: 0.7
   effect: {fileID: 176530, guid: caf388c7338cc0c4b9187283f10a304a, type: 3}
   _gameManager: {fileID: 0}
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 3349248479616353690}
-  moveSpeed: 10
+  moveSpeed: 20
   detectionRadius: 0.7
   effect: {fileID: 176530, guid: caf388c7338cc0c4b9187283f10a304a, type: 3}
   _gameManager: {fileID: 0}

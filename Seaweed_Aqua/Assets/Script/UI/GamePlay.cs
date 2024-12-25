@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,14 +20,19 @@ public class GamePlay : CanvasUI
 
     public void HomeBtn()
     {
-        UIManager.Instance.CloseAll();
+        
         Time.timeScale = 1;
+        StartCoroutine(LoadHome());
+        SoundManager.Instance.PlayClickSound();
+    }
+    IEnumerator LoadHome()
+    {
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Home");
+        UIManager.Instance.CloseAll();
         SoundManager.Instance.PlayVFXSound(2);
         UIManager.Instance.OpenUI<ChooseLevel>();
-
     }
-
     private void Update()
     {
         if (_gameManager == null)
@@ -43,7 +49,25 @@ public class GamePlay : CanvasUI
 
 
     }
-    
+    public void RetryBtn()
+    {
+        SoundManager.Instance.PlayClickSound();
+        Time.timeScale = 1;
+        StartCoroutine(ReLoad());
+    }
+    IEnumerator ReLoad()
+    {
+        yield return new WaitForSeconds(1);
+        ReloadCurrentScene();
+    }
+    public void ReloadCurrentScene()
+    {
+        // Lấy tên của scene hiện tại 
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        //Tải lại scene hiện tại
+        SceneManager.LoadScene(currentSceneName);
+      
+    }
     private void UpdateLevelText()
     {
         if (LevelName != null)
